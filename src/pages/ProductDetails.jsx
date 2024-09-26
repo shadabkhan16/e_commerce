@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 import ProductCards from "../components/ProductCards";
+import { productItems } from "../constants/fake_products";
 
 
 const ProductDetails = () => {
-    const {id} = useParams()
+    // const {id} = useParams()
     const productImages = [
         "https://plus.unsplash.com/premium_photo-1667355489924-0ce0b2bd9961?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "https://plus.unsplash.com/premium_photo-1667355489924-0ce0b2bd9961?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -11,12 +12,7 @@ const ProductDetails = () => {
         "https://plus.unsplash.com/premium_photo-1667355489924-0ce0b2bd9961?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ];
 
-    const relatedProducts = [
-    { id: 1, name: "Side Table", price: 99.99, image: "https://plus.unsplash.com/premium_photo-1667355489924-0ce0b2bd9961?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-    { id: 2, name: "Lamp", price: 49.99, image: "https://plus.unsplash.com/premium_photo-1667355489924-0ce0b2bd9961?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-    { id: 3, name: "Cushion", price: 19.99, image: "https://plus.unsplash.com/premium_photo-1667355489924-0ce0b2bd9961?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-    { id: 4, name: "Armchair", price: 299.99, image: "https://plus.unsplash.com/premium_photo-1667355489924-0ce0b2bd9961?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-    ];
+    const relatedProducts = productItems.slice(0,4)
 
   return (
     <div className="container mx-auto px-4 py-8">
