@@ -21,8 +21,8 @@ const NewArrivals = () => {
       </div>
 
       {/* Horizontal scrolling container */}
-      <div className="overflow-x-auto">
-        <div className="flex space-x-6">
+      <div className="overflow-x-auto hide-scrollbar">
+        <div className="flex space-x-6 ">
           {products.map(product => (
             <div key={product.id} className="min-w-[250px] flex-shrink-0 border p-4 rounded-lg shadow-lg">
               <img src={product.imgSrc} alt={product.name} className="w-full h-48 object-cover rounded-md mb-4" />
