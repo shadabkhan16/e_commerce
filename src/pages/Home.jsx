@@ -4,12 +4,13 @@ import NewArrivals from "../components/NewArrivals"
 import PhotoGallery from "../components/PhotoGallery"
 import PolicyCard from "../components/PolicyCard"
 import Tagline from "../components/Tagline"
+import Slider from "../assets/slider.png"
 
 
 const Home = () => {
   return (
     <div>
-        <Banner/>
+        <Banner image={Slider}/>
         <Tagline/>
         <PhotoGallery/>
         <NewArrivals/>
