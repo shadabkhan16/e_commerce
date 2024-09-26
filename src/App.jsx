@@ -1,8 +1,11 @@
-import React from 'react'
+import Sign from "./pages/IsSignIn"
+
 
 const App = () => {
   return (
-    <div className="text-center">App</div>
+    <div>
+      <Sign/>
+    </div>
   )
 }
 
