@@ -14,9 +14,9 @@ const PolicyCard = () => {
   return (
     <div className="container mx-auto py-8 px-4 flex  space-x-3 ">
       {card.map(item => (
-        <div key={item.id} className="min-w-[250px] flex-shrink-0 border p-4 h-32 flex  space-x-3 flex-col bg-slate-200">
+        <div key={item.id} className="min-w-[250px] flex-shrink-0 border p-4 rounded-lg shadow-lg h-28 flex items-center space-x-3 flex-col">
           {/* Render the icon */}
-          <div className="text-4xl font-semibold pl-2">
+          <div className="text-3xl text-blue-500">
             {item.icon}
           </div>
           <div>
