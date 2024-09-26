@@ -1,5 +1,6 @@
 
 import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'; // Import icons
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -7,15 +8,15 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo Section */}
         <div className="text-2xl font-bold">
-          <a href="#">3legant.</a>
+          <Link to ="/">3legant.</Link>
         </div>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-6 text-gray-600">
-          <a href="#" className="hover:text-black transition duration-300">Home</a>
-          <a href="#" className="hover:text-black transition duration-300">Shop</a>
-          <a href="#" className="hover:text-black transition duration-300">Product</a>
-          <a href="#" className="hover:text-black transition duration-300">Contact Us</a>
+          <Link to="/" className="hover:text-black transition duration-300">Home</Link>
+          <Link to="/shop" className="hover:text-black transition duration-300">Shop</Link>
+          <Link to="/products" className="hover:text-black transition duration-300">Product</Link>
+          <Link to="/contact-us" className="hover:text-black transition duration-300">Contact Us</Link>
         </nav>
 
         {/* Icons Section */}

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from "react-router-dom";
 
 const products = [
   { id: 1, name: 'Loveseat Sofa', price: 199.00, imgSrc: 'https://via.placeholder.com/600x400' },
@@ -17,7 +17,9 @@ const NewArrivals = () => {
     <div className="container mx-auto py-8 px-4">
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-2xl font-bold">New Arrivals</h2>
+        <Link to="/products">
         <h4 className="text-blue-500 cursor-pointer">More Products</h4>
+        </Link>
       </div>
 
       {/* Horizontal scrolling container */}

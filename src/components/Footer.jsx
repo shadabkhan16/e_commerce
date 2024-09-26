@@ -1,9 +1,14 @@
 
 import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa'; 
+import Newsletter from "../assets/Newsletter.png"
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white pt-8 pb-4 border-t border-gray-300">
+    <div>
+      <div>
+            <img src={Newsletter} alt="" />
+        </div>
+        <footer className="bg-black text-white pt-8 pb-4 border-t border-gray-300">
       <div className="container mx-auto px-4">
         {/* Upper Footer Section */}
         <div className="flex flex-col md:flex-row items-center justify-between pb-4">
@@ -49,6 +54,8 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </div>
+    
   );
 };
 

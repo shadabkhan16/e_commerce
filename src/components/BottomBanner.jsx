@@ -1,7 +1,6 @@
-
 import { BsArrowRight } from 'react-icons/bs'; 
 import ImagePlaceholder from "../assets/ImagePlaceholder.png";
-import Newsletter from "../assets/Newsletter.png"
+
 
 const BottomBanner = () => {
   return (
@@ -32,9 +31,7 @@ const BottomBanner = () => {
             </a>
         </div>
         </div>
-        <div>
-            <img src={Newsletter} alt="" />
-        </div>
+        
     </div>
   );
 };
