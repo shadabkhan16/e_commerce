@@ -6,14 +6,17 @@ import { PiDotsNineBold } from "react-icons/pi";
 import { FaBarsProgress } from "react-icons/fa6";
 import { productItems } from "../constants/fake_products";
 import Rating from "../components/Rating"
+import { useNavigate } from "react-router-dom";
 
 
 
 const Product = () => {
   const [selectedCategory, setSelectedCategory] = useState('Living Room');
   const [selectedPrice, setSelectedPrice] = useState('All Prices');
-  const handleProductDetails =(productID)=>{
-    console.log(productID)
+  const navigate = useNavigate();
+
+  const handleProductDetails =(id)=>{
+    navigate(`/products/${id}`)
   }
   return (
     <div>
