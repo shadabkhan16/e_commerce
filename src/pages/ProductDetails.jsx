@@ -1,4 +1,5 @@
 // import { useParams } from "react-router-dom"
+import { useState } from "react";
 import ProductCards from "../components/ProductCards";
 import { productItems } from "../constants/fake_products";
 
@@ -13,6 +14,13 @@ const ProductDetails = () => {
       ];
 
     const relatedProducts = productItems.slice(0,4)
+    const [quantity , setQuantity] = useState(1)
+    const handleIncrement=()=>{
+        setQuantity(quantity+1)
+    }
+    const HandleDecrement =()=>{
+        setQuantity(quantity-1)
+    }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -59,9 +67,9 @@ const ProductDetails = () => {
           {/* Quantity and Add to Cart */}
           <div className="flex items-center mb-6">
             <div className="flex border rounded-md overflow-hidden">
-              <button className="px-3 py-1 border-r bg-gray-100">-</button>
-              <span className="px-4 py-1">1</span>
-              <button className="px-3 py-1 border-l bg-gray-100">+</button>
+              <button className="px-3 py-1 border-r bg-gray-100" onClick={HandleDecrement}>-</button>
+              <span className="px-4 py-1">{quantity}</span>
+              <button className="px-3 py-1 border-l bg-gray-100" onClick={handleIncrement}>+</button>
               <button className="ml-4 px-6 py-2 border w-96 border-black rounded-md">Wishlist</button>
             </div>
             

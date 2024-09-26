@@ -1,6 +1,7 @@
 
-import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'; // Import icons
+import { FaSearch, FaUser } from 'react-icons/fa'; // Import icons
 import { Link } from 'react-router-dom';
+import  FlyoutCart  from './FlyoutCart';
 
 const Header = () => {
   return (
@@ -25,7 +26,7 @@ const Header = () => {
             <FaSearch size={20} />
           </a>
           <a href="#" className="hover:text-black transition duration-300">
-            <FaShoppingCart size={20} />
+            <FlyoutCart/>
           </a>
           <a href="#" className="hover:text-black transition duration-300">
             <FaUser size={20} />
