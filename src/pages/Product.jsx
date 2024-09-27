@@ -7,7 +7,7 @@ import { FaBarsProgress } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import ProductCards from "../components/ProductCards";
 import { useSelector } from "react-redux";
-import NoItemsFound from "./ItemNotFound";
+import NoItemsFound from "../components/ItemNotFound";
 
 const Product = () => {
   const [selectedCategory, setSelectedCategory] = useState("Living Room");

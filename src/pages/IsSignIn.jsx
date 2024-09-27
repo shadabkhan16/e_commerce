@@ -6,7 +6,7 @@ const IsSignIn = () => {
 
   const handleSignToggle = () => {
     setIsSignIn(!isSignIn);
-    console.log("clicked");
+    // console.log("clicked");
   };
 
   return (
