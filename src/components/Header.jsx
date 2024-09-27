@@ -41,7 +41,10 @@ const Header = () => {
           <Link className="hover:text-black transition duration-300">
             <FlyoutCart />
           </Link>
-          <Link href="#" className="hover:text-black transition duration-300">
+          <Link
+            to="/userlogin"
+            className="hover:text-black transition duration-300"
+          >
             <FaUser size={20} />
           </Link>
         </div>

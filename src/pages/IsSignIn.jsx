@@ -1,7 +1,7 @@
 import { useState } from "react";
 import image from "../assets/Left.png";
 
-const SignUp = () => {
+const IsSignIn = () => {
   const [isSignIn, setIsSignIn] = useState(false);
 
   const handleSignToggle = () => {
@@ -118,4 +118,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default IsSignIn;
