@@ -1,8 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart  , incrementQuantity, decrementQuantity} from "../redux/slice/product"; 
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const itemsInCart = useSelector((state) => state.products.cart);
 
   const handleRemoveFromCart = (id) => {
@@ -10,8 +12,8 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    // Implement your checkout logic here
-    console.log("Proceeding to checkout...");
+    navigate("/checkout")
+    
   };
 const handleIncrement=(id)=>{
   dispatch(incrementQuantity(id))
@@ -101,7 +103,7 @@ const calculateTotal = () => {
           <span>Total</span>
           <span>${(calculateTotal() + 15)}</span>
         </div>
-        <button className="w-full mt-4 px-4 py-2 bg-black text-white rounded-md">Checkout</button>
+        <button className="w-full mt-4 px-4 py-2 bg-black text-white rounded-md" onClick={handleCheckout}>Checkout</button>
       </div>
     </div>
 
@@ -118,23 +120,5 @@ const calculateTotal = () => {
 };
 
 export default Cart;
-
-
-
-
-
-// const Cart = () => {
- 
-//   // Update product quantity in the cart
-//   const updateQuantity = (id, amount) => {
-//     setCart(cart.map(item => 
-//       item.id === id ? { ...item, quantity: item.quantity + amount } : item
-//     ));
-//   };
-
-//   // Calculate total price
-//   const calculateTotal = () => {
-//     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-//   };
 
   
