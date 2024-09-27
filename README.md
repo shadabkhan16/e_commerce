@@ -6,34 +6,34 @@ This is an e-commerce web application built with React, utilizing modern technol
 
 ## Table of Contents
 
-> Features
-> Technologies Used
-> Installation
-> Usage
-> Folder Structure
-> Contributing
-> License
+- Features
+- Technologies Used
+- Installation
+- Usage
+- Folder Structure
+- Contributing
+- License
 
 ## Features
 
-> Responsive design with Tailwind CSS
-> Fast development and build processes with Vite
-> State management using Redux and Redux Toolkit
-> User authentication (add your implementation details)
-> Product listings with details and images
-> Shopping cart functionality
-> Easy navigation with React Router
+- Responsive design with Tailwind CSS
+- Fast development and build processes with Vite
+- State management using Redux and Redux Toolkit
+- User authentication (add your implementation details)
+- Product listings with details and images
+- Shopping cart functionality
+- Easy navigation with React Router
 
 ## Technologies Used
 
-> React: JavaScript library for building user interfaces.
-> Vite: A fast development server and build tool.
-> Tailwind CSS: A utility-first CSS framework for rapid UI development.
-> React Icons: A library of SVG icons for React applications.
-> Redux: A predictable state container for JavaScript apps.
-> React Redux: Official bindings for using Redux with React.
-> Redux Toolkit: The official, recommended way to write Redux logic.
-> React Router: Declarative routing for React.js applications.
+- React: JavaScript library for building user interfaces.
+- Vite: A fast development server and build tool.
+- Tailwind CSS: A utility-first CSS framework for rapid UI development.
+- React Icons: A library of SVG icons for React applications.
+- Redux: A predictable state container for JavaScript apps.
+- React Redux: Official bindings for using Redux with React.
+- Redux Toolkit: The official, recommended way to write Redux logic.
+- React Router: Declarative routing for React.js applications.
 
 ## Installation
 
@@ -41,26 +41,28 @@ To get started with this project, follow these steps:
 
 1.Clone the repository:
 
-```
+```bash
 git clone https://github.com/shadabkhan16/e_commerce
 cd e_commerce
 ```
 
 2. Install the dependencies:
 
-   ```
-   npm install
-   ```
+```bash
+npm install
+```
 
 3. Start the development server:
 
-```
+```bash
    npm run dev
 ```
 
 Open your browser and navigate to http://localhost:5173 (or the port specified in the terminal).
 
 ## Folder Structure
+
+```bash
 
 ecommerce-web-app/
 ├── public/ # Static assets
@@ -74,6 +76,7 @@ ecommerce-web-app/
 ├── tailwind.config.js # Tailwind CSS configuration
 ├── vite.config.js # Vite configuration
 └── package.json # Project metadata and dependencies
+```
 
 ## Contributing
 
