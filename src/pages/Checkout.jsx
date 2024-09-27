@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useDispatch, useSelector} from "react-redux"
+import { useDispatch, useSelector } from "react-redux";
 import { decrementQuantity, incrementQuantity } from "../redux/slice/product";
 import { useNavigate } from "react-router-dom";
 
@@ -19,31 +19,31 @@ const Checkout = () => {
     cardNumber: "",
     expirationDate: "",
     cvc: "",
-    coupon: ""
+    coupon: "",
   });
-  const dispatch = useDispatch()
-  const itemsInCart = useSelector((state)=> state.products.cart)
+  const dispatch = useDispatch();
+  const itemsInCart = useSelector((state) => state.products.cart);
   const calculateAmount = () => {
-    return itemsInCart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
-  
-  }
-  console.log(calculateAmount())
+    return itemsInCart
+      .reduce((total, item) => total + item.price * item.quantity, 0)
+      .toFixed(2);
+  };
+  console.log(calculateAmount());
 
-  const handleIncrement =(id)=>{
-    dispatch(incrementQuantity(id))
-  }
-  const handleDecrement =(id)=>{
-    dispatch(decrementQuantity(id))
-  }
-  
-  const navigate = useNavigate()
-  const handlePlaceOrder =()=>{
-   navigate("/orderPlaced")
-  }
+  const handleIncrement = (id) => {
+    dispatch(incrementQuantity(id));
+  };
+  const handleDecrement = (id) => {
+    dispatch(decrementQuantity(id));
+  };
+
+  const navigate = useNavigate();
+  const handlePlaceOrder = () => {
+    navigate("/orderPlaced");
+  };
 
   // State for managing applied coupon
   const [couponApplied, setCouponApplied] = useState(false);
-
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -53,25 +53,32 @@ const Checkout = () => {
     });
   };
 
-  // Handle coupon apply
-  const handleApplyCoupon = () => {
-    if (formData.coupon === "JenkateMW" && !couponApplied) {
-      setTotal(total - discount);
-      setCouponApplied(true);
-    }
-  };
-
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-6">Check Out</h1>
-      
+      <h1 className="text-4xl font-bold mb-6 text-center">Check Out</h1>
+
       {/* Checkout Steps */}
-      <div className="flex items-center mb-8 space-x-8">
-        <div className="flex items-center text-green-500 font-bold">
-          <span className="mr-2">&#10003;</span> Shopping cart
+      <div className="flex items-center justify-center mb-12 space-x-8">
+        <div className="flex items-center space-x-2">
+          <div className="h-8 w-8 rounded-full bg-green-500 text-white flex items-center justify-center">
+            ✔️
+          </div>
+          <span className="text-green-500">Shopping cart</span>
         </div>
-        <div className="text-black">2 Checkout details</div>
-        <div className="text-gray-500">3 Order complete</div>
+        <div className="w-16 h-px bg-gray-300"></div>
+        <div className="flex items-center space-x-2">
+          <div className="h-8 w-8 rounded-full  bg-green-500 text-white flex items-center justify-center">
+            ✔️
+          </div>
+          <span className="text-green-500">Checkout details</span>
+        </div>
+        <div className="w-16 h-px bg-gray-300"></div>
+        <div className="flex items-center space-x-2">
+          <div className="h-8 w-8 rounded-full bg-gray-300 text-white flex items-center justify-center">
+            3
+          </div>
+          <span className="text-gray-500">Order complete</span>
+        </div>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
@@ -241,7 +248,12 @@ const Checkout = () => {
               )}
             </div>
 
-            <button className="w-full mt-4 px-4 py-2 bg-black text-white rounded-md" onClick={handlePlaceOrder}>Place Order</button>
+            <button
+              className="w-full mt-4 px-4 py-2 bg-black text-white rounded-md"
+              onClick={handlePlaceOrder}
+            >
+              Place Order
+            </button>
           </div>
         </div>
 
@@ -250,25 +262,35 @@ const Checkout = () => {
           <h2 className="text-xl font-bold mb-4">Order Summary</h2>
           <div className="space-y-4">
             {/* Sample Products */}
-            {
-                itemsInCart.map((item)=>
-                    <div className="flex items-center space-x-4" key={item.id}>
-                        <img src={item.image} alt={item.title} className="w-16 h-16 rounded-md" />
-                        <div>
-                            <h3 className="font-semibold">{item.title}</h3>
-                            <p className="text-gray-500">Color: Black</p>
-                            <p className="font-bold">${item.price}</p>
-                            <div className="flex items-center">
-                            <button className="border px-2" onClick={()=>handleDecrement(item.id)}>-</button>
-                            <span className="px-4">{item.quantity}</span>
-                            <button className="border px-2" onClick={()=>handleIncrement(item.id)}>+</button>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }
-            
-            
+            {itemsInCart.map((item) => (
+              <div className="flex items-center space-x-4" key={item.id}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-16 h-16 rounded-md"
+                />
+                <div>
+                  <h3 className="font-semibold">{item.title}</h3>
+                  <p className="text-gray-500">Color: Black</p>
+                  <p className="font-bold">${item.price}</p>
+                  <div className="flex items-center">
+                    <button
+                      className="border px-2"
+                      onClick={() => handleDecrement(item.id)}
+                    >
+                      -
+                    </button>
+                    <span className="px-4">{item.quantity}</span>
+                    <button
+                      className="border px-2"
+                      onClick={() => handleIncrement(item.id)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="mt-4">
@@ -280,25 +302,13 @@ const Checkout = () => {
               value={formData.coupon}
               onChange={handleChange}
             />
-            <button
-              className="w-full px-4 py-2 bg-black text-white rounded-md"
-              onClick={handleApplyCoupon}
-            >
+            <button className="w-full px-4 py-2 bg-black text-white rounded-md">
               Apply
             </button>
             {couponApplied && (
               <div className="flex justify-between items-center mt-2 text-green-500">
                 <p>JenkateMW</p>
-                <button
-                  className="text-red-500"
-                  onClick={() => {
-                    setCouponApplied(false);
-                    setTotal(total + discount);
-                    setFormData({ ...formData, coupon: "" });
-                  }}
-                >
-                  Remove
-                </button>
+                <button className="text-red-500">Remove</button>
               </div>
             )}
           </div>
@@ -314,7 +324,7 @@ const Checkout = () => {
             </div>
             <div className="flex justify-between text-lg font-bold">
               <p>Total</p>
-              <p>${calculateAmount()+15}</p>
+              <p>${calculateAmount() + 15}</p>
             </div>
           </div>
         </div>

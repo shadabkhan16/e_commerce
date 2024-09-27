@@ -14,11 +14,7 @@ const SignUp = () => {
       <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Image Section */}
         <div className="hidden md:block md:w-1/2 bg-gray-100 flex items-center justify-center p-8">
-          <img
-            src={image}
-            alt="Chair"
-            className="rounded-lg"
-          />
+          <img src={image} alt="Chair" className="rounded-lg" />
         </div>
 
         {/* Form Section */}
