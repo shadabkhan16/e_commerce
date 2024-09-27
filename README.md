@@ -80,7 +80,7 @@ ecommerce-web-app/
 
 ## Contributing
 
-    Contributions are welcome! If you have suggestions or improvements, please fork the repository and create a pull request.
+Contributions are welcome! If you have suggestions or improvements, please fork the repository and create a pull request.
 
 ## License
 
