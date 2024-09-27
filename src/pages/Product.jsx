@@ -4,9 +4,9 @@ import Banner from "../components/Banner"
 import { PiSquaresFourThin } from "react-icons/pi";
 import { PiDotsNineBold } from "react-icons/pi";
 import { FaBarsProgress } from "react-icons/fa6";
-import { productItems } from "../constants/fake_products";
 import { useNavigate } from "react-router-dom";
 import ProductCards from "../components/ProductCards";
+import { useSelector } from "react-redux";
 
 
 
@@ -14,7 +14,7 @@ const Product = () => {
   const [selectedCategory, setSelectedCategory] = useState('Living Room');
   const [selectedPrice, setSelectedPrice] = useState('All Prices');
   const navigate = useNavigate();
-
+ const productItems = useSelector((state)=> state.products.items)
   const handleProductDetails =(id)=>{
     navigate(`/products/${id}`)
     // console.log("clicked")
