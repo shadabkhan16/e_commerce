@@ -28,7 +28,7 @@ const Checkout = () => {
       .reduce((total, item) => total + item.price * item.quantity, 0)
       .toFixed(2);
   };
-  console.log(calculateAmount());
+  // console.log(calculateAmount());
 
   const handleIncrement = (id) => {
     dispatch(incrementQuantity(id));

@@ -10,7 +10,7 @@ const IsSignIn = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 my-10">
       <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Image Section */}
         <div className="hidden md:block md:w-1/2 bg-gray-100 flex items-center justify-center p-8">

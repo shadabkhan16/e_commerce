@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import ProductCards from "../components/ProductCards";
 import { useSelector } from "react-redux";
 import NoItemsFound from "../components/ItemNotFound";
+import Newsletter from "../assets/Newsletter.png";
 
 const Product = () => {
   const [selectedCategory, setSelectedCategory] = useState("Living Room");
@@ -131,6 +132,9 @@ const Product = () => {
           </div>
         </div>
       </section>
+      <div>
+        <img src={Newsletter} alt="" />
+      </div>
     </div>
   );
 };
