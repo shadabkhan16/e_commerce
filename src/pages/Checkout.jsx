@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { decrementQuantity, incrementQuantity } from "../redux/slice/product";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   // State to hold form data
@@ -34,15 +35,15 @@ const Checkout = () => {
   const handleDecrement =(id)=>{
     dispatch(decrementQuantity(id))
   }
- 
+  
+  const navigate = useNavigate()
   const handlePlaceOrder =()=>{
-    console.log("order placed")
+   navigate("/orderPlaced")
   }
 
   // State for managing applied coupon
   const [couponApplied, setCouponApplied] = useState(false);
-  const [total, setTotal] = useState(234.00); // Total price
-  const discount = 25.00; // Coupon discount
+
 
   // Handle form input changes
   const handleChange = (e) => {
