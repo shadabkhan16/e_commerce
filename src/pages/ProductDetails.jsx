@@ -1,12 +1,13 @@
- import { useParams } from "react-router-dom"
+ import { useParams  ,useNavigate } from "react-router-dom"
 import ProductCards from "../components/ProductCards";
 import { productItems } from "../constants/fake_products";
 import { useDispatch, useSelector } from "react-redux";
-import { decrementQuantity, incrementQuantity } from "../redux/slice/product";
+import {addToCart, incrementQuantity, decrementQuantity } from "../redux/slice/product";
 
 
 const ProductDetails = () => {
     const {id} = useParams()
+    const navigate = useNavigate()
     const productItem = useSelector((state)=> state.products.items)
     const selectedProduct = productItem.find((product) => product.id === Number(id) )
     // console.log(selectedProduct)
@@ -19,11 +20,22 @@ const ProductDetails = () => {
 
     const relatedProducts = productItems.slice(0,4)
     const dispatch = useDispatch()
-    const handleIncrement=()=>{
-        dispatch(incrementQuantity(selectedProduct.id))
-    }
-    const HandleDecrement =()=>{
-        dispatch(decrementQuantity(selectedProduct.id))
+    const handleIncrement = () => {
+      
+        dispatch(incrementQuantity(selectedProduct.id));
+      
+    };
+    
+    const handleDecrement = () => {
+      
+        dispatch(decrementQuantity(selectedProduct.id));
+      
+    };
+    
+    const handleAddTocart = ()=>{
+      dispatch(addToCart(selectedProduct.id))
+       navigate('/cart')
+      // console.log(selectedProduct.id)
     }
 
   return (
@@ -71,7 +83,7 @@ const ProductDetails = () => {
           {/* Quantity and Add to Cart */}
           <div className="flex items-center mb-6">
             <div className="flex border rounded-md overflow-hidden">
-              <button className="px-3 py-1 border-r bg-gray-100" onClick={HandleDecrement}>-</button>
+              <button className="px-3 py-1 border-r bg-gray-100" onClick={handleDecrement}>-</button>
               <span className="px-4 py-1">{selectedProduct.quantity}</span>
               <button className="px-3 py-1 border-l bg-gray-100" onClick={handleIncrement}>+</button>
               <button className="ml-4 px-6 py-2 border w-96 border-black rounded-md">Wishlist</button>
@@ -79,7 +91,7 @@ const ProductDetails = () => {
             
             
           </div>
-          <button className="ml-4 px-6 py-2 bg-black text-white rounded-md w-full">Add to Cart</button>
+          <button className="ml-4 px-6 py-2 bg-black text-white rounded-md w-full" onClick={handleAddTocart}>Add to Cart</button>
 
           {/* Additional Info */}
           <div className="mb-4">
