@@ -40,14 +40,23 @@ This is an e-commerce web application built with React, utilizing modern technol
 To get started with this project, follow these steps:
 
 1.Clone the repository:
+
+```
 git clone https://github.com/shadabkhan16/e_commerce
-cd ecommerce-web-app
+cd e_commerce
+```
 
 2. Install the dependencies:
+
+   ```
    npm install
+   ```
 
 3. Start the development server:
+
+```
    npm run dev
+```
 
 Open your browser and navigate to http://localhost:5173 (or the port specified in the terminal).
 
