@@ -7,6 +7,7 @@ import { FaBarsProgress } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import ProductCards from "../components/ProductCards";
 import { useSelector } from "react-redux";
+import NoItemsFound from "./ItemNotFound";
 
 const Product = () => {
   const [selectedCategory, setSelectedCategory] = useState("Living Room");
@@ -107,16 +108,20 @@ const Product = () => {
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {filtereProduct.map((product) => (
-              <ProductCards
-                key={product.id}
-                product={product}
-                className="bg-white p-4 rounded-lg shadow-lg }"
-                onClick={() => handleProductDetails(product.id)}
-              />
-            ))}
-          </div>
+          {filtereProduct.length === 0 ? (
+            <NoItemsFound />
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              {filtereProduct.map((product) => (
+                <ProductCards
+                  key={product.id}
+                  product={product}
+                  className="bg-white p-4 rounded-lg shadow-lg }"
+                  onClick={() => handleProductDetails(product.id)}
+                />
+              ))}
+            </div>
+          )}
 
           {/* Show More Button */}
           <div className="flex justify-center mt-8">
