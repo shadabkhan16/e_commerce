@@ -19,6 +19,31 @@ const Product = () => {
     navigate(`/products/${id}`)
     // console.log("clicked")
   }
+  const filtereProduct= productItems.filter((product) => {
+    // Category filter
+    const categoryMatch =  product.category === selectedCategory;
+  
+    // Price filter
+    let priceMatch = true;
+    switch (selectedPrice) {
+      case 'Less than 50':
+        priceMatch = product.price < 50;
+        break;
+      case '50 - 100':
+        priceMatch = product.price >= 50 && product.price < 100;
+        break;
+      case 'Greater than 100':
+        priceMatch = product.price > 100;
+        break;
+      default:
+        priceMatch = true;
+    }
+  
+    // Return true if both category and price match
+    return categoryMatch && priceMatch;
+  });
+
+ 
   return (
     <div>
       <div>
@@ -53,9 +78,9 @@ const Product = () => {
             className="bg-white border border-gray-300 rounded-lg px-4 py-2 w-52"
           >
             <option value="All Prices">All Prices</option>
-            <option value="Under $50">Under $50</option>
-            <option value="$50 - $100">$50 - $100</option>
-            <option value="Above $100">Above $100</option>
+            <option value="Less than 50">Under $50</option>
+            <option value="50-100">$50 - $100</option>
+            <option value="Greater than 100">Above $100</option>
           </select>
          </div>
           </div>
@@ -83,7 +108,7 @@ const Product = () => {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {productItems.map((product) => (
+          {filtereProduct.map((product) => (
             
             <ProductCards key={product.id} product = {product} className="bg-white p-4 rounded-lg shadow-lg }" onClick={()=>handleProductDetails(product.id)}/>
           ))}
