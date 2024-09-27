@@ -1,11 +1,15 @@
-// import { useParams } from "react-router-dom"
-import { useState } from "react";
+ import { useParams } from "react-router-dom"
 import ProductCards from "../components/ProductCards";
 import { productItems } from "../constants/fake_products";
+import { useDispatch, useSelector } from "react-redux";
+import { decrementQuantity, incrementQuantity } from "../redux/slice/product";
 
 
 const ProductDetails = () => {
-    // const {id} = useParams()
+    const {id} = useParams()
+    const productItem = useSelector((state)=> state.products.items)
+    const selectedProduct = productItem.find((product) => product.id === Number(id) )
+    // console.log(selectedProduct)
     const productImages = [
         "https://plus.unsplash.com/premium_photo-1667355489924-0ce0b2bd9961?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "https://plus.unsplash.com/premium_photo-1667355489924-0ce0b2bd9961?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -14,12 +18,12 @@ const ProductDetails = () => {
       ];
 
     const relatedProducts = productItems.slice(0,4)
-    const [quantity , setQuantity] = useState(1)
+    const dispatch = useDispatch()
     const handleIncrement=()=>{
-        setQuantity(quantity+1)
+        dispatch(incrementQuantity(selectedProduct.id))
     }
     const HandleDecrement =()=>{
-        setQuantity(quantity-1)
+        dispatch(decrementQuantity(selectedProduct.id))
     }
 
   return (
@@ -43,10 +47,10 @@ const ProductDetails = () => {
 
         {/* Right: Product Details */}
         <div>
-          <h1 className="text-3xl font-bold">Tray Table</h1>
-          <div className="text-gray-600 mb-4">11 Reviews</div>
-          <p className="text-2xl font-semibold text-black mb-2">$199.00 <span className="line-through text-gray-500">$400.00</span></p>
-          <p className="text-gray-600 mb-4">Buy one or buy a few and make every space where you sit more convenient. Light and easy to move around with removable tray top, handy for serving snacks.</p>
+          <h1 className="text-3xl font-bold">{selectedProduct.title}</h1>
+          <div className="text-gray-600 mb-4">{selectedProduct.countOfReviews} {" "}Reviews</div>
+          <p className="text-2xl font-semibold text-black mb-2">${selectedProduct.price} <span className="line-through text-gray-500">${selectedProduct.oldPrice}</span></p>
+          <p className="text-gray-600 mb-4">{selectedProduct.description}</p>
           
           {/* Measurements */}
           <div className="mb-4">
@@ -68,7 +72,7 @@ const ProductDetails = () => {
           <div className="flex items-center mb-6">
             <div className="flex border rounded-md overflow-hidden">
               <button className="px-3 py-1 border-r bg-gray-100" onClick={HandleDecrement}>-</button>
-              <span className="px-4 py-1">{quantity}</span>
+              <span className="px-4 py-1">{selectedProduct.quantity}</span>
               <button className="px-3 py-1 border-l bg-gray-100" onClick={handleIncrement}>+</button>
               <button className="ml-4 px-6 py-2 border w-96 border-black rounded-md">Wishlist</button>
             </div>
