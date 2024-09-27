@@ -36,8 +36,8 @@ const ProductDetails = () => {
     // console.log("clicked-");
   };
 
-  const handleAddTocart = (id) => {
-    dispatch(addToCart(id));
+  const handleAddTocart = () => {
+    dispatch(addToCart(selectedProduct.id));
     navigate("/cart");
   };
 
